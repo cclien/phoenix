@@ -37,6 +37,7 @@ import java.util.concurrent.ConcurrentMap;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
+import etu.util.EtuConfigurationUtils;
 
 import com.salesforce.phoenix.query.*;
 import com.salesforce.phoenix.util.SQLCloseables;
@@ -70,7 +71,7 @@ public final class PhoenixDriver extends PhoenixEmbeddedDriver {
 
     public PhoenixDriver() { // for Squirrel
         // Use production services implementation
-        super(new QueryServicesImpl(withDefaults(HBaseConfiguration.create())));
+        super(new QueryServicesImpl(withDefaults(EtuConfigurationUtils.createConfiguration())));
     }
 
     @Override
